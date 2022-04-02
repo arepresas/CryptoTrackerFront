@@ -10,10 +10,17 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v1
-      - name: Download build
-        uses: actions/download-artifact@v1
+
+      - name: Download artifact
+        uses: dawidd6/action-download-artifact@v2
         with:
+          github_token: ${{secrets.GITHUB_TOKEN}}
+          workflow: build.yml
+          workflow_conclusion: success
+          pr: ${{github.event.pull_request.number}}
+          commit: ${{github.event.pull_request.head.sha}}
           name: deploy_dist
+
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
