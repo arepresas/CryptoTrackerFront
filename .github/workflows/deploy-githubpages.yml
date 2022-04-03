@@ -1,4 +1,4 @@
-name: Deploy-angular-workflow
+name: Deploy-angular-githubpages-workflow
 
 on:
   workflow_dispatch
