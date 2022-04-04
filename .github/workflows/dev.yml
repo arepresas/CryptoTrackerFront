@@ -9,6 +9,7 @@ jobs:
   buildAndTest:
     name: Build-angular
     runs-on: ubuntu-latest
+    environment: CryptoTracker
     steps:
       - name: build_test_ext
         uses: aurelien-baudet/workflow-dispatch@v2
@@ -24,6 +25,7 @@ jobs:
   deploy-angular-githubPages:
     name: Deploy-angular-githubPages
     runs-on: ubuntu-latest
+    environment: CryptoTracker
     needs: [ buildAndTest ]
     steps:
       - name: deploy_angular_githubPages_ext
@@ -40,6 +42,7 @@ jobs:
   build-docker-latest:
     name: Build-docker-latest
     runs-on: ubuntu-latest
+    environment: CryptoTracker
     needs: [ buildAndTest ]
     steps:
       - name: deploy_angular_docker-latest_ext
