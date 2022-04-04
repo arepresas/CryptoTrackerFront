@@ -9,6 +9,7 @@ jobs:
   buildAndTest:
     name: Build-angular
     runs-on: ubuntu-latest
+    environment: CryptoTracker
     steps:
       - name: build_test_ext
         uses: aurelien-baudet/workflow-dispatch@v2
